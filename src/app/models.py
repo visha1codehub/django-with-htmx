@@ -15,6 +15,12 @@ class Book(models.Model):
         default="book_front_pages/default.jpeg",
     )
 
+
+    def save(self, *args, **kwargs):
+        if not self.front_page:
+            self.front_page = "book_front_pages/default.jpeg"
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.title
 
