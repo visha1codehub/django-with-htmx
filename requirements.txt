@@ -1,0 +1,5 @@
+django
+django-extensions
+icecream
+rav
+Pillow

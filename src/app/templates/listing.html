@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Listing...</h1>
+
+        <form hx-get="{% url 'filter-list' %}" hx-trigger="input delay:500ms" hx-target="#targetdiv" hx-swap="innerHTML" class="d-flex align-items-center">
+            <label for="numberInput" class="form-label me-2 mb-0"><strong>Enter a Number:</strong></label>
+            <input type="text" name="num" id="numberInput" placeholder="Filter list by greater than number" class="form-control form-control-sm" style="width: auto;">
+        </form>
+    </div>
+
+    <!-- Filtered List Display -->
+    <div id="targetdiv">
+        <button type="button" class="btn btn-secondary mb-2">
+            Total <span class="badge bg-light text-dark">{{ lst|length }}</span>
+        </button>
+        <ul class="list-group">
+            {% for n in lst %}
+            <li class="list-group-item">{{ n }}</li>
+            {% empty %}
+            <li class="list-group-item text-muted">No items match the filter.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock content %}

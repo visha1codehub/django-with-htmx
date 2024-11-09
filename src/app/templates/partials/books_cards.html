@@ -1,0 +1,23 @@
+<button type="button" class="btn btn-dark mb-2">
+    Total Books <span class="badge bg-light text-dark">{{ books.count }}</span>
+</button>
+<div class="row g-3">
+    {% for book in books %}
+        <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card h-100">
+                <a href="{{ book.front_page.url }}" target="_blank">
+                    <img src="{{ book.front_page.url }}" class="card-img-top" alt="{{ book.title }} front page" style="height: 200px; object-fit: cover;">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">{{ book.title }}</h5>
+                    <p class="card-text"><strong>Author:</strong> {{ book.author }}</p>
+                    <p class="card-text"><strong>Publication Date:</strong> {{ book.publication_date }}</p>
+                    <p class="card-text"><strong>Pages:</strong> {{ book.pages }}</p>
+                    <p class="card-text"><strong>Language:</strong> {{ book.language }}</p>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p class="text-muted mt-4">No books found. Please adjust your search or sort criteria.</p>
+    {% endfor %}
+</div>

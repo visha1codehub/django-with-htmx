@@ -1,0 +1,10 @@
+<button type="button" class="btn btn-secondary mb-2">
+    Total <span class="badge bg-light text-dark">{{ flist|length }}</span>
+</button>
+<ul class="list-group">
+    {% for fnum in flist %}
+    <li class="list-group-item">{{ fnum }}</li>
+    {% empty %}
+    <li class="list-group-item text-muted">No items match the filter.</li>
+    {% endfor %}
+</ul>
