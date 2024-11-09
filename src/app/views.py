@@ -105,4 +105,4 @@ def books_card_list(request):
     if request.headers.get("HX-Request") == "true":
         return render(request, "partials/books_cards.html", {"books": books})
 
-    return render(request, "books_card_list.html", {"books": books, "order": "new"})
+    return render(request, "books_card_list.html", {"books": books})
