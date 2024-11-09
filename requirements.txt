@@ -3,3 +3,4 @@ django-extensions
 icecream
 rav
 Pillow
+black
