@@ -86,7 +86,7 @@ class BooksByDateView(ListView):
 def books_card_list(request):
     search_query = request.GET.get("search_query", "")
     sort_order = request.GET.get("sort_order", "")
-    iprint(search_query, sort_order)
+    iprint(request.GET)
 
     if search_query:
         books = Book.objects.filter(
@@ -99,6 +99,10 @@ def books_card_list(request):
 
     if sort_order == "desc":
         books = books.order_by("publication_date")
+    elif sort_order == "pasc":
+        books = books.order_by("pages")
+    elif sort_order == "pdesc":
+        books = books.order_by("-pages")
     else:
         books = books.order_by("-publication_date")
 
@@ -106,3 +110,20 @@ def books_card_list(request):
         return render(request, "partials/books_cards.html", {"books": books})
 
     return render(request, "books_card_list.html", {"books": books})
+
+
+
+from django.http import JsonResponse
+
+def handle_values(request):
+    extra_value1 = request.GET.get('extra_value1')
+    extra_value2 = request.GET.get('extra_value2')
+    iprint(request.GET)
+    response_data = {
+        "received_value1": extra_value1,
+        "received_value2": extra_value2,
+        "message": "Values received successfully."
+    }
+    if request.headers.get("HX-Request") == "true":
+        return JsonResponse(response_data)
+    return render(request, "handle_values.html")

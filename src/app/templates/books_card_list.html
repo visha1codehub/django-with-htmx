@@ -3,19 +3,24 @@
 {% block content %}
     <div class="container my-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h1>Books Card List</h1>
 
-            <form hx-get="{% url 'books-card-list' %}" hx-trigger="input delay:500ms, click from:#sort-btn"
-                  hx-params="*" hx-target="#targetdiv" hx-swap="innerHTML" class="d-flex align-items-center">
+            <h1><i class="devicon-gitbook-original colored"></i>
+                 Books Card List</h1>
+
+            <form hx-get="{% url 'books-card-list' %}" hx-trigger="input delay:500ms, click from:#sort-date-btn, click from:#sort-page-btn"
+                  hx-target="#targetdiv" hx-swap="innerHTML" class="d-flex align-items-center">
 
                 <label for="search-query" class="form-label me-2 mb-0"><strong>Search Books:</strong></label>
                 <input type="text" id="search-query" name="search_query" class="form-control" style="width: auto;">
 
                 <!-- Hidden input to hold sort order -->
-                <input type="hidden" id="sort-order-hidden" name="sort_order" value="asc">
+                <input type="hidden" id="sort-hidden" name="sort_order" value="asc">
 
-                <button type="button" id="sort-btn" class="btn btn-outline-secondary ms-2" onclick="toggleSortOrder(this)">
-                    Newest First ↓
+                <button type="button" id="sort-date-btn" class="btn btn-outline-secondary ms-2" onclick="toggleDateSortOrder(this)">
+                    Sort by Date
+                </button>
+                <button type="button" id="sort-page-btn" value="asc" class="btn btn-outline-secondary ms-2" onclick="togglePageSortOrder(this)">
+                    Sort By Pages
                 </button>
             </form>
         </div>
@@ -48,21 +53,52 @@
     </div>
 
     <script>
-        function toggleSortOrder(button) {
+        function toggleDateSortOrder(button) {
             // Get the hidden input field for sort order
-            const sortOrderHidden = document.getElementById("sort-order-hidden");
+            const sortOrderHidden = document.getElementById("sort-hidden");
 
             // Toggle sort order and update button text
             if (sortOrderHidden.value === "asc") {
                 sortOrderHidden.value = "desc";
-                button.textContent = "Oldest First ↑";
+                button.textContent = "Sort by Date ↑";
             } else {
                 sortOrderHidden.value = "asc";
-                button.textContent = "Newest First ↓";
+                button.textContent = "Sort by Date ↓";
             }
 
             // Manually trigger the form submission
             button.form.dispatchEvent(new Event("submit", { cancelable: true, bubbles: true }));
         }
+        function togglePageSortOrder(button) {
+            // Get the hidden input field for sort order
+            const sortOrderHidden = document.getElementById("sort-hidden");
+
+            // Toggle sort order and update button text
+            if (sortOrderHidden.value === "pasc") {
+                sortOrderHidden.value = "pdesc";
+                button.textContent = "Sort by Pages ↑";
+            } else {
+                sortOrderHidden.value = "pasc";
+                button.textContent = "Sort by Pages ↓";
+            }
+
+            // Manually trigger the form submission
+            button.form.dispatchEvent(new Event("submit", { cancelable: true, bubbles: true }));
+        }
+        /* function togglePageSortOrder(button) {
+            // Get the hidden input field for sort order
+
+            // Toggle sort order and update button text
+            if (button.value === "asc") {
+                button.value = "desc";
+                button.textContent = "Pages ↑";
+            } else {
+                button.value = "asc";
+                button.textContent = "Pages ↓";
+            }
+
+            // Manually trigger the form submission
+            button.form.dispatchEvent(new Event("submit", { cancelable: true, bubbles: true }));
+        } */
     </script>
 {% endblock content %}

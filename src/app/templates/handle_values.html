@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="mb-3">
+        <label for="input1" class="form-label">Value 1</label>
+        <input type="text" class="form-control" id="input1" name="extra_value1" placeholder="Enter value 1">
+    </div>
+    <div class="mb-3">
+        <label for="input2" class="form-label">Value 2</label>
+        <input type="text" class="form-control" id="input2" name="extra_value2" placeholder="Enter value 2">
+    </div>
+    <button
+        class="btn btn-primary"
+        hx-get="{% url 'handle-values' %}"
+        hx-trigger="click"
+        hx-swap="afterend"
+        hx-vals='js:{
+            extra_value3: document.getElementById("input1").value,
+            extra_value4: document.getElementById("input2").value,
+            btn_val: document.getElementById("mybtn2").value
+        }'
+        hx-include="#input1, #input2, #mybtn2"
+        value="Hamar"
+        id="mybtn"
+    >
+        Submit
+    </button>
+    <button id="mybtn2" name="btnwa" value="Tahar">dfdfffd</button>
+
+</div>
+
+
+{% endblock content %}

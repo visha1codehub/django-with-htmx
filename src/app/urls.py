@@ -9,4 +9,5 @@ urlpatterns = [
     # path("books-by-date/", views.books_by_date, name="books-by-date"),
     path("books-by-date/", views.BooksByDateView.as_view(), name="books-by-date"),
     path("books-card-list/", views.books_card_list, name="books-card-list"),
+    path('handle-values/', views.handle_values, name='handle-values'),
 ]
