@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+
     <div class="container my-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
 
-            <h1><i class="devicon-gitbook-original colored"></i>
+            <h1 class="neon-text"><i class="devicon-gitbook-original colored"></i>
                  Books Card List</h1>
 
             <form hx-get="{% url 'books-card-list' %}" hx-trigger="input delay:500ms, click from:#sort-date-btn, click from:#sort-page-btn"

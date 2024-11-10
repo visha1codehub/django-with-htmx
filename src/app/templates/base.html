@@ -9,6 +9,88 @@
     <script src="https://unpkg.com/htmx.org@1.9.2"></script>
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     {% block title %}{% endblock title %}
+    <style>
+      body {
+        background-image: url('https://cdn.pixabay.com/photo/2022/07/20/18/44/reading-7334749_1280.png'); /* Replace with your neon background image URL */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #e0e0e0;
+      }
+      /* Neon blue text */
+    .neon-text {
+      color: #0e7ea4;
+      text-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 30px #00bfff;
+    }
+
+    /* Neon blue button */
+    .btn {
+      color: #ffffff;
+      background-color: #297189;
+      border: 1px solid #00bfff;
+      box-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 40px #00bfff;
+    }
+
+    .btn:hover {
+      color: #121212;
+      background-color: #80dfff;
+      box-shadow: 0 0 15px #80dfff, 0 0 25px #80dfff, 0 0 50px #80dfff;
+    }
+
+    /* Neon blue border */
+    .border {
+      border: 2px solid #00bfff;
+      box-shadow: 0 0 5px #00bfff, 0 0 15px #00bfff;
+    }
+    .input {
+      background-color: transparent;
+      color: #00bfff;
+      border: 2px solid #00bfff;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 16px;
+      outline: none;
+      box-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .input::placeholder {
+      color: #80dfff;
+    }
+
+    /* Glowing effect on focus */
+    .input:focus {
+      box-shadow: 0 0 15px #00bfff, 0 0 25px #00bfff, 0 0 35px #00bfff;
+    }
+
+      /* Card styling */
+      .card {
+        background-color: #1e1e1e;
+        color: #00bfff;
+        border: 2px solid #00bfff;
+        box-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin: 1rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      /* Hover effect for the cards */
+      .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px #00bfff, 0 0 30px #00bfff;
+      }
+
+      /* Card title and text */
+      .card-title {
+        color: #00bfff;
+        text-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff;
+      }
+
+      .card-text {
+        color: #e0e0e0;
+      }
+    </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
