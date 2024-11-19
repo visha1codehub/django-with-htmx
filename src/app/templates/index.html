@@ -16,5 +16,8 @@
         <div id="targetdiv">
 
         </div>
+        {% for book in books %}
+          <div>{{book.title}}-------{{book.chapters}}</div>
+        {% endfor %}
     </div>
 {% endblock content %}

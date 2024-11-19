@@ -24,5 +24,20 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
-    # class Meta:
-    #     ordering = ['-publication_date']
+    class Meta:
+        ordering = ['-id']
+
+class Section(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    title = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.book.title + "-" + self.title
+
+
+class Chapter(models.Model):
+    section = models.ForeignKey(Section, on_delete=models.CASCADE)
+    title = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.section.book.title + "-" + self.section.title + "-" + self.title

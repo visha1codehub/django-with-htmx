@@ -2,14 +2,19 @@ from django.shortcuts import render
 import random
 from datetime import datetime
 from django.db.models import Q
-from .models import Book
+from .models import Book, Section, Chapter
 from icecream import ic as iprint
 
 
 def index(request):
     x = random.randint(1, 1000)
+    books = Book.objects.all()
+    # iprint(type(books), books)
+    for book in books:
+        book.chapters = Chapter.objects.filter(section__book=book).count()
+    # iprint(type(books), books)
 
-    return render(request, "index.html", {"x": x})
+    return render(request, "index.html", {"x": x, "books": books})
 
 
 def something(request):
@@ -112,17 +117,17 @@ def books_card_list(request):
     return render(request, "books_card_list.html", {"books": books})
 
 
-
 from django.http import JsonResponse
 
+
 def handle_values(request):
-    extra_value1 = request.GET.get('extra_value1')
-    extra_value2 = request.GET.get('extra_value2')
+    extra_value1 = request.GET.get("extra_value1")
+    extra_value2 = request.GET.get("extra_value2")
     iprint(request.GET)
     response_data = {
         "received_value1": extra_value1,
         "received_value2": extra_value2,
-        "message": "Values received successfully."
+        "message": "Values received successfully.",
     }
     if request.headers.get("HX-Request") == "true":
         return JsonResponse(response_data)

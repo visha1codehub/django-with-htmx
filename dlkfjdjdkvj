@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css"> <!-- Our custom CSS for neon effects -->
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-neon-dark">
+        <div class="container">
+            <a class="navbar-brand text-neon" href="#">Neon Page</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link text-neon" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-neon" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-neon" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero bg-neon-dark">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-md-12 text-neon text-center">
+                    <h1 class="display-3">Welcome to Neon Page</h1>
+                    <p class="lead">A simple example of a neon-themed page with Bootstrap and custom CSS.</p>
+                    <a href="#" class="btn btn-neon">Explore More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-neon-dark text-neon text-center py-3">
+        <div class="container">
+            <small>Copyright &copy; Neon Page 2023</small>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+/* Global Neon Colors */
+.bg-neon-dark {
+    background-color: #212121; /* Dark Background */
+}
+.text-neon {
+    color: #33CCFF; /* Neon Blue */
+    text-shadow: 0px 0px 5px #33CCFF, 0px 0px 10px #33CCFF, 0px 0px 15px #33CCFF, 0px 0px 20px #33CCFF, 0px 0px 30px #33CCFF;
+}
+
+.btn-neon {
+    background: linear-gradient(to bottom, #33CCFF, #0099CC);
+    background-size: 100% 200%;
+    transition: background-position 0.3s ease-out;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px #33CCFF, 0px 0px 10px #33CCFF, 0px 0px 15px #33CCFF, 0px 0px 20px #33CCFF, 0px 0px 30px #33CCFF;
+}
+.btn-neon:hover {
+    background-position: 100% 100%;
+}
+
+/* Optional: More neon elements */
+.neon-outline {
+    color: #33CCFF;
+    text-shadow: none;
+    border: 2px solid #33CCFF;
+    border-radius: 5px;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease-out;
+}
+.neon-outline:hover {
+    background-color: rgba(51, 204, 255, 0.2);
+}
+
+/* Neon Glow on Hover for Links */
+a.neon-link {
+    color: #33CCFF;
+    text-decoration: none;
+    transition: color 0.3s ease-out;
+}
+a.neon-link:hover {
+    color: #FFFFFF;
+    text-shadow: 0px 0px 5px #33CCFF, 0px 0px 10px #33CCFF, 0px 0px 15px #33CCFF;
+}
+
+/* Adding Neon Effect to Form Elements */
+input.neon-input, textarea.neon-input {
+    border: 2px solid #33CCFF;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #212121;
+    color: #33CCFF;
+}
+input.neon-input:focus, textarea.neon-input:focus {
+    box-shadow: 0px 0px 5px #33CCFF, 0px 0px 10px #33CCFF, 0px 0px 15px #33CCFF;
+}
+
+/* Adding Neon Effect to Button on Hover for General Use */
+.btn-neon-general {
+    background-color: #212121;
+    color: #33CCFF;
+    border: 2px solid #33CCFF;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+.btn-neon-general:hover {
+    background-color: rgba(51, 204, 255, 0.2);
+    box-shadow: 0px 0px 5px #33CCFF, 0px 0px 10px #33CCFF, 0px 0px 15px #33CCFF;
+}
+
+
+
+
+
+<!-- Showcase Neon Outline -->
+<div class="container mt-5">
+    <button class="neon-outline">Neon Outline Button</button>
+</div>
+
+<!-- Showcase Neon Link Hover Effect -->
+<div class="container mt-5">
+    <a href="#" class="neon-link">Hover for Neon Glow</a>
+</div>
+
+<!-- Showcase Neon Form Elements -->
+<div class="container mt-5">
+    <form>
+        <input type="text" class="neon-input" placeholder="Neon Input">
+        <textarea class="neon-input" rows="5" placeholder="Neon Textarea"></textarea>
+        <button class="btn-neon-general">Submit with Neon Effect</button>
+    </form>
+</div>
+
+<!-- Showcase General Neon Button -->
+<div class="container mt-5">
+    <button class="btn-neon-general">General Neon Button</button>
+</div>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Existing Head Content -->
+</head>
+<body>
+    <!-- Existing Navigation Bar and Hero Section -->
+
+    <!-- New Showcase Sections -->
+    <div class="container mt-5">
+        <button class="neon-outline">Neon Outline Button</button>
+    </div>
+
+    <div class="container mt-5">
+        <a href="#" class="neon-link">Hover for Neon Glow</a>
+    </div>
+
+    <div class="container mt-5">
+        <form>
+            <input type="text" class="neon-input" placeholder="Neon Input">
+            <textarea class="neon-input" rows="5" placeholder="Neon Textarea"></textarea>
+            <button class="btn-neon-general">Submit with Neon Effect</button>
+        </form>
+    </div>
+
+    <div class="container mt-5">
+        <button class="btn-neon-general">General Neon Button</button>
+    </div>
+
+    <!-- Existing Footer and Scripts -->
+</body>
+</html>
+
