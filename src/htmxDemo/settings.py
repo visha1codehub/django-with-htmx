@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'django_extensions',
+	'django_utils_vish',
 ]
 
 MIDDLEWARE = [

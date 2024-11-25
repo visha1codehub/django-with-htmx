@@ -1,14 +1,36 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 import random
 from datetime import datetime
 from django.db.models import Q
-from .models import Book, Section, Chapter
+from .models import Book, Section, Chapter, Notification
 from icecream import ic as iprint
+from vish_print import print_output
+from django.contrib.contenttypes.models import ContentType
 
 
 def index(request):
+
+    # book = get_object_or_404(Book, id=328)
+
+    # Notification.objects.create(
+    #     text = "Creating a book notification from view.",
+    #     content_type = ContentType.objects.get_for_model(Book),
+    #     object_id = book.id,
+
+    # Notification.objects.create(content_object=book, text="Hii this is another way of creating me.")
+    # )
+    notifications = Notification.objects.all()
+    for noti in notifications:
+        iprint(noti.content_object, noti.content_type)
+
+    # notification = Notification.objects.get(content_type = ContentType.objects.get_for_model(Book), object_id=book.id)
+    # iprint(notification.text)
+
+    #! iprint(ContentType.notifications.all())
+
     x = random.randint(1, 1000)
     books = Book.objects.all()
+    # print_output(books, format_type='json')
     # iprint(type(books), books)
     for book in books:
         book.chapters = Chapter.objects.filter(section__book=book).count()

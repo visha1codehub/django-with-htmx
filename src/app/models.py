@@ -41,3 +41,19 @@ class Chapter(models.Model):
 
     def __str__(self):
         return self.section.book.title + "-" + self.section.title + "-" + self.title
+
+
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
+
+
+class Notification(models.Model):
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveSmallIntegerField()
+    content_object = GenericForeignKey('content_type', 'object_id')
+
+    text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return self.text
